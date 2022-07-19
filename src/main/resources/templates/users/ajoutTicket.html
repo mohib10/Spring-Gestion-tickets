@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+
+
+<head>
+	<title>Ajout d'un Ticket</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+		integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+		integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script>
+
+   <meta charset="utf-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+	 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/dc522288eb.js" crossorigin="anonymous"></script>
+	
+	 <meta charset="utf-8" />
+    <title></title>
+   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link href="StyleSheet.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	
+</head>
+
+
+
+<body>
+
+	<header>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#navbarExample01"
+        aria-controls="navbarExample01"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarExample01">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item active">
+            <a th:href="@{/client}" class="nav-link" aria-current="page">Gestion de tickets d’incidents</a >
+          </li>
+          <li class="nav-item">
+            <a th:href="@{/admin}" class="nav-link" >administrateur</a>
+          </li>
+          <li class="nav-item">
+            <a th:href="@{/client}" class="nav-link">client</a>
+          </li>
+          <li class="nav-item">
+            <a th:href="@{/developer}" class="nav-link" >developpeur</a >
+          </li>
+        </ul>
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+
+
+
+	<section class="vh-100 gradient-custom">
+		<div class="container py-5 h-100">
+			<div class="row d-flex justify-content-center align-items-center h-100">
+				<div class="col-12 col-md-8 col-lg-6 col-xl-5">
+					<div class="card bg-light text-black" style="border-radius: 1rem;">
+						<div class="card-body p-5">
+							<div class="mb-md-5 mt-md-4 pb-5">
+
+								<h2 class="fw-bold mb-2 text-uppercase">Ajouter Ticket</h2>
+
+
+
+								<form th:action="@{/client/addTicket}" th:object="${ticket}" method="post">
+									
+										<input readonly class="form-control form-control-lg" type="hidden" name="id"
+											th:field="*{id}" />
+									
+									
+									<div class="form-outline form-white mb-4">
+										Nom:<input type="text" class="form-control form-control-lg" name="nom"
+											th:field="*{nom}" />
+										
+									</div>
+									<div class="form-outline form-white mb-4">
+									Description: <input class="form-control form-control-lg" type="text" name="description"
+										th:field="*{description}" />
+									</div>
+										<div class="form-outline form-white mb-4">
+									priorite: <input type="text" class="form-control form-control-lg" name="priorite"
+										th:field="*{priorite}" />
+										</div>
+										<div class="form-outline form-white mb-4">
+									Bugs : <select class="form-select" name="bug" th:field="*{bug}">
+										<option th:each="d : ${bugs}" th:value="${d.id}" th:text="${d.nom}"> </option>
+									</select>
+										</div>
+
+									<button style="margin-top: 30px;" type="submit"
+										class="btn btn-outline-dark btn-lg px-5">Enregistrer</button>
+								</form>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+
+
+
+</html>
